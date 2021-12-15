@@ -3,6 +3,10 @@
         "noImplicitAny": true,
         "esModuleInterop": true,
         "rootDir": "./src",
-        "outDir": "./build"
+        "outDir": "./build",
+        "target": "ES6",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "moduleResolution": "node"
     }
 }
