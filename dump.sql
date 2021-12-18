@@ -1,9 +1,9 @@
 CREATE TABLE "exams" (
 	"id" serial NOT NULL,
 	"name" TEXT NOT NULL,
+	"exam_link" TEXT NOT NULL,
 	"discipline_id" int NOT NULL,
 	"teacher_id" int NOT NULL,
-	"exam_link" TEXT NOT NULL,
 	"category_id" int NOT NULL,
 	CONSTRAINT "exams_pk" PRIMARY KEY ("id")
 ) WITH (
@@ -24,7 +24,7 @@ CREATE TABLE "teachers" (
 
 CREATE TABLE "disciplines" (
 	"id" serial NOT NULL,
-	"name" serial NOT NULL,
+	"name" TEXT NOT NULL,
 	"semester_id" int NOT NULL,
 	CONSTRAINT "disciplines_pk" PRIMARY KEY ("id")
 ) WITH (
@@ -46,7 +46,7 @@ CREATE TABLE "teachers_group" (
 
 CREATE TABLE "categories" (
 	"id" serial NOT NULL,
-	"name" serial NOT NULL UNIQUE,
+	"name" TEXT NOT NULL UNIQUE,
 	CONSTRAINT "categories_pk" PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
@@ -73,11 +73,3 @@ ALTER TABLE "disciplines" ADD CONSTRAINT "disciplines_fk0" FOREIGN KEY ("semeste
 
 ALTER TABLE "teachers_group" ADD CONSTRAINT "teachers_group_fk0" FOREIGN KEY ("discipline_id") REFERENCES "disciplines"("id");
 ALTER TABLE "teachers_group" ADD CONSTRAINT "teachers_group_fk1" FOREIGN KEY ("teacher_id") REFERENCES "teachers"("id");
-
-
-
-
-
-
-
-
