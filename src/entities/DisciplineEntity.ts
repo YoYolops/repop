@@ -24,11 +24,15 @@ export default class DisciplineEntity implements Discipline {
     @Column({ name: 'semester_id' })
         semesterId: number;
 
-    @ManyToOne(() => SemesterEntity, (semester: SemesterEntity) => semester.disciplines)
+    @ManyToOne(
+        () => SemesterEntity,
+        (semester: SemesterEntity) => semester.disciplines,
+        { eager: true },
+    )
     @JoinColumn({ name: 'semester_id' })
         semester: SemesterEntity;
 
-    @OneToMany(() => ExamEntity, (exam: ExamEntity) => exam.discipline)
+    @OneToMany(() => ExamEntity, (exam: ExamEntity) => exam.discipline, { eager: true })
         exams: ExamEntity[];
 
     @ManyToMany(() => TeacherEntity, (teacher: TeacherEntity) => teacher.id, { eager: true })
@@ -44,4 +48,21 @@ export default class DisciplineEntity implements Discipline {
         },
     })
         teacher: TeacherEntity[];
+
+    // Clear the repeated data:
+    getClearedData() {
+        return {
+            id: this.id,
+            name: this.name,
+            semester: this.semester.semester,
+            teachers: [...this.teacher],
+            exams: this.exams.map((exam) => ({
+                id: exam.id,
+                name: exam.name,
+                examLink: exam.examLink,
+                categoryName: exam.category.name,
+                teacher: this.teacher.find((teacher) => teacher.id === exam.teacherId).name,
+            })),
+        };
+    }
 }

@@ -15,6 +15,6 @@ export default class TeacherEntity implements Teacher {
     @Column()
         name: string;
 
-    @OneToMany(() => ExamEntity, (exam: ExamEntity) => exam.teacher, { eager: true })
+    @OneToMany(() => ExamEntity, (exam: ExamEntity) => exam.teacher)
         exams: ExamEntity[];
 }

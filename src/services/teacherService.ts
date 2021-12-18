@@ -4,7 +4,9 @@ import TeacherEntity from '../entities/TeacherEntity';
 
 async function getExamsByTeacher(): Promise<Teacher[]> {
     const teacherRepository = getRepository(TeacherEntity);
-    const examsByTeacher = await teacherRepository.find({});
+    const examsByTeacher = await teacherRepository.find({
+        relations: ['exams'],
+    });
     return examsByTeacher;
 }
 
