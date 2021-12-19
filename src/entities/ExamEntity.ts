@@ -5,12 +5,13 @@ import {
     ManyToOne,
     JoinColumn,
 } from 'typeorm';
+import { Exam } from '../controllers/interfaces/Request';
 import CategoryEntity from './CategorieEntity';
 import DisciplineEntity from './DisciplineEntity';
 import TeacherEntity from './TeacherEntity';
 
 @Entity('exams')
-export default class ExamEntity {
+export default class ExamEntity implements Exam {
     @PrimaryGeneratedColumn()
         id: number;
 

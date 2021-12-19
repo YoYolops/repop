@@ -54,6 +54,7 @@ export default class DisciplineEntity implements Discipline {
         return {
             id: this.id,
             name: this.name,
+            semesterId: this.semester.id,
             semester: this.semester.semester,
             teachers: [...this.teacher],
             exams: this.exams.map((exam) => ({

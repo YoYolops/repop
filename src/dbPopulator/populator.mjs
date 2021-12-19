@@ -43,7 +43,7 @@ void async function populateDatabase() {
     const createdSemestersPromise = []
     for(let i = 1; i < 14; i++) {
         createdSemestersPromise.push(
-            connection.query(`INSERT INTO semesters (semester) VALUES (${i === 14 ? 'Eletiva' : i}) RETURNING *;`)
+            connection.query(`INSERT INTO semesters (semester) VALUES (${i === 14 ? 'Eletiva' : (i+'º')}) RETURNING *;`)
         )
     }
     const createdSemesters = await Promise.all(createdSemestersPromise);

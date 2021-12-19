@@ -7,7 +7,7 @@ async function getExamsByTeacher(): Promise<Teacher[]> {
     const examsByTeacher = await teacherRepository.find({
         relations: ['exams'],
     });
-    return examsByTeacher;
+    return examsByTeacher.map((exam) => exam.getClearedData());
 }
 
 export default {

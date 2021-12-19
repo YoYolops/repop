@@ -17,4 +17,17 @@ export default class TeacherEntity implements Teacher {
 
     @OneToMany(() => ExamEntity, (exam: ExamEntity) => exam.teacher)
         exams: ExamEntity[];
+
+    getClearedData() {
+        return {
+            id: this.id,
+            name: this.name,
+            exams: this.exams?.map((exam) => ({
+                id: exam.id,
+                name: exam.name,
+                examLink: exam.examLink,
+                categoryName: exam.category.name,
+            })),
+        };
+    }
 }
