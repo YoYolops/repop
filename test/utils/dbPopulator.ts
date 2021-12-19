@@ -21,14 +21,14 @@ export default async function dbPopulator(): Promise<ExamRegistrationBody> {
         teacherRepository,
         teachersGroupRepository,
         examRepository,
-    ] = await Promise.all([
+    ] = [
         getRepository(CategoryEntity),
         getRepository(DisciplineEntity),
         getRepository(SemesterEntity),
         getRepository(TeacherEntity),
         getRepository(TeachersGroupEntity),
         getRepository(ExamEntity),
-    ]);
+    ];
 
     const semesterData = createSemester();
     const teacherData = createTeacher();
