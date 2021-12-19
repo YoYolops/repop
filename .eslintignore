@@ -4,3 +4,4 @@ setup.ts
 interfaces/
 serverErrorHandler.ts
 dbPopulator/
+test/
