@@ -9,9 +9,9 @@ import SemesterEntity from '../../src/entities/SemesterEntity';
 import TeacherEntity from '../../src/entities/TeacherEntity';
 import TeachersGroupEntity from '../../src/entities/TeachersGroupEntity';
 import ExamEntity from '../../src/entities/ExamEntity';
-import createExam, { ConfigExamRegistrationBody } from '../factories/createExam';
+import createExam, { ExamRegistrationBody } from '../factories/createExam';
 
-export default async function dbPopulator(): Promise<ConfigExamRegistrationBody> {
+export default async function dbPopulator(): Promise<ExamRegistrationBody> {
     const getId = (insertionObject: InsertResult) => insertionObject.raw[0].id;
 
     const [
@@ -48,15 +48,12 @@ export default async function dbPopulator(): Promise<ConfigExamRegistrationBody>
         teacherId
     })
 
-    await examRepository.insert(createExam({
+    const examData = createExam({
         disciplineId,
         teacherId,
         categoryId,
-    }))
+    })
+    await examRepository.insert(examData)
 
-    return {
-        disciplineId,
-        teacherId,
-        categoryId,
-    };
+    return examData;
 }

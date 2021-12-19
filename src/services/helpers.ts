@@ -7,7 +7,7 @@ function isValidRequestExamBody(examBody: any): boolean {
     return true;
 }
 
-function manageTeacherDisciplineRelationConsistence(
+function isTeacherDisciplineRelationConsistent(
     teacher: TeacherEntity,
     discipline: DisciplineEntity,
 ): boolean {
@@ -20,5 +20,5 @@ function manageTeacherDisciplineRelationConsistence(
 
 export default {
     isValidRequestExamBody,
-    manageTeacherDisciplineRelationConsistence,
+    isTeacherDisciplineRelationConsistent,
 };

@@ -1,12 +1,12 @@
 import faker from 'faker';
 
-export interface ConfigExamRegistrationBody {
+interface ConfigExamRegistrationBody {
     disciplineId: number,
     teacherId: number,
     categoryId: number,
 }
 
-interface ExamRegistrationBody extends ConfigExamRegistrationBody {
+export interface ExamRegistrationBody extends ConfigExamRegistrationBody {
     name: string,
     examLink: string,
 };
