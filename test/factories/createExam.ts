@@ -1,6 +1,6 @@
 import faker from 'faker';
 
-interface ConfigExamRegistrationBody {
+export interface ConfigExamRegistrationBody {
     disciplineId: number,
     teacherId: number,
     categoryId: number,

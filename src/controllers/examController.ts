@@ -17,7 +17,7 @@ async function examRegistration(req: Request, res: Response, next: NextFunction)
         });
 
         const response = await examService.registerExam(req.body);
-        return res.send(response);
+        return res.status(201).send(response);
     } catch (error) {
         if (helpers.errorIsKnown(error)) return res.status(error.statusCode).send(error.message);
         return next(error);
