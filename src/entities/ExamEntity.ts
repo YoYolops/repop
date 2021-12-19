@@ -6,7 +6,7 @@ import {
     JoinColumn,
 } from 'typeorm';
 import { Exam } from '../controllers/interfaces/Request';
-import CategoryEntity from './CategorieEntity';
+import CategoryEntity from './CategoryEntity';
 import DisciplineEntity from './DisciplineEntity';
 import TeacherEntity from './TeacherEntity';
 

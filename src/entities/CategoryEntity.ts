@@ -5,9 +5,10 @@ import {
     OneToMany,
 } from 'typeorm';
 import ExamEntity from './ExamEntity';
+import Category from './interfaces/Category';
 
 @Entity('categories')
-export default class CategoryEntity {
+export default class CategoryEntity implements Category {
     @PrimaryGeneratedColumn()
         id: number;
 

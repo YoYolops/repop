@@ -2,9 +2,10 @@ import {
     Entity, PrimaryGeneratedColumn, Column, OneToMany,
 } from 'typeorm';
 import DisciplineEntity from './DisciplineEntity';
+import Semester from './interfaces/Semester';
 
 @Entity('semesters')
-export default class SemesterEntity {
+export default class SemesterEntity implements Semester {
     @PrimaryGeneratedColumn()
         id: number;
 

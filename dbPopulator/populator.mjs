@@ -1,7 +1,7 @@
 import connection from "./connection.mjs";
 import * as factory from './factories.mjs' ;
 
-// to run, type in your terminal: node ./src/dbPopulator/populator.mjs
+// to run, type in your terminal: node ./dbPopulator/populator.mjs
 
 void async function populateDatabase() {
     console.log("Starting...")
@@ -43,7 +43,7 @@ void async function populateDatabase() {
     const createdSemestersPromise = []
     for(let i = 1; i < 14; i++) {
         createdSemestersPromise.push(
-            connection.query(`INSERT INTO semesters (semester) VALUES (${i === 14 ? 'Eletiva' : (i+'º')}) RETURNING *;`)
+            connection.query(`INSERT INTO semesters (semester) VALUES (${i === 14 ? 'Eletiva' : i}) RETURNING *;`)
         )
     }
     const createdSemesters = await Promise.all(createdSemestersPromise);

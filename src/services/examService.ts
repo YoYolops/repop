@@ -3,7 +3,7 @@ import helper from './helpers';
 import UnformattedRequestBody from '../errors/UnformattedRequestBody';
 import TeacherEntity from '../entities/TeacherEntity';
 import DisciplineEntity from '../entities/DisciplineEntity';
-import CategoryEntity from '../entities/CategorieEntity';
+import CategoryEntity from '../entities/CategoryEntity';
 import UnexistentReference from '../errors/UnexistentReference';
 import * as Request from '../controllers/interfaces/Request';
 import ExamEntity from '../entities/ExamEntity';
