@@ -62,12 +62,9 @@ CREATE TABLE "semesters" (
   OIDS=FALSE
 );
 
-
-
 ALTER TABLE "exams" ADD CONSTRAINT "exams_fk0" FOREIGN KEY ("discipline_id") REFERENCES "disciplines"("id");
 ALTER TABLE "exams" ADD CONSTRAINT "exams_fk1" FOREIGN KEY ("teacher_id") REFERENCES "teachers"("id");
 ALTER TABLE "exams" ADD CONSTRAINT "exams_fk2" FOREIGN KEY ("category_id") REFERENCES "categories"("id");
-
 
 ALTER TABLE "disciplines" ADD CONSTRAINT "disciplines_fk0" FOREIGN KEY ("semester_id") REFERENCES "semesters"("id");
 
