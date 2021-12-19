@@ -2,7 +2,7 @@ import createCategory from '../factories/createCategory';
 import createDiscipline from '../factories/createDiscipline';
 import createSemester from '../factories/createSemester';
 import createTeacher from '../factories/createTeacher';
-import { getRepository } from 'typeorm';
+import { getRepository, InsertResult } from 'typeorm';
 import CategoryEntity from '../../src/entities/CategoryEntity';
 import DisciplineEntity from '../../src/entities/DisciplineEntity';
 import SemesterEntity from '../../src/entities/SemesterEntity';
@@ -12,7 +12,7 @@ import ExamEntity from '../../src/entities/ExamEntity';
 import createExam, { ConfigExamRegistrationBody } from '../factories/createExam';
 
 export default async function dbPopulator(): Promise<ConfigExamRegistrationBody> {
-    const getId = (insertionObject) => insertionObject.raw[0];
+    const getId = (insertionObject: InsertResult) => insertionObject.raw[0].id;
 
     const [
         categoryRepository,
