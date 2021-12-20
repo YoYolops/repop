@@ -6,7 +6,7 @@ export default async function connect() {
     const connection = connectionManager.create({
         name: 'default',
         type: 'postgres',
-        url: `postgres://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`,
+        url: process.env.DATABASE_URL,
         entities: ['src/entities/*.ts'],
     });
     await connection.connect();

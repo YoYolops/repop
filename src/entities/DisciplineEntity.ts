@@ -61,6 +61,7 @@ export default class DisciplineEntity implements Discipline {
                 id: exam.id,
                 name: exam.name,
                 examLink: exam.examLink,
+                categoryId: exam.category.id,
                 categoryName: exam.category.name,
                 teacher: this.teacher.find((teacher) => teacher.id === exam.teacherId).name,
             })),
