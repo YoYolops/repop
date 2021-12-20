@@ -17,6 +17,7 @@
   },
   "scripts": {
     "test": "NODE_ENV=test yarn jest -i --runInBand",
+    "build": "NODE_ENV=production npx tsc --outDir dist",
     "dev": "NODE_ENV=dev nodemon ./src/server.ts",
     "pop": "node ./dbPopulator/populator.mjs",
     "start": "NODE_ENV=production NODE_TLS_REJECT_UNAUTHORIZED=0 node dist/server.js"
