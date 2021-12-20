@@ -17,7 +17,8 @@
   "scripts": {
     "test": "NODE_ENV=test yarn jest -i --runInBand",
     "dev": "NODE_ENV=dev nodemon ./src/server.ts",
-    "pop": "node ./dbPopulator/populator.mjs"
+    "pop": "node ./dbPopulator/populator.mjs",
+    "start": "NODE_ENV=production NODE_TLS_REJECT_UNAUTHORIZED=0 node dist/server.js"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
